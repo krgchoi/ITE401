@@ -1,3 +1,3 @@
 # ITE401
 Activities
-Mods 1 - 20
+Micro Projects
