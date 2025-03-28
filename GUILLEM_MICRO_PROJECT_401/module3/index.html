@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>document</title>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.15.3/babel.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #2b5876, #4e4376);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #form-example {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #2b5876;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #2b5876;
+            box-shadow: 0 0 8px rgba(43, 88, 118, 0.2);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #2b5876;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #4e4376;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: left;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box p {
+            margin: 5px 0;
+            color: #333;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="form-example"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        const Form = () => {
+            const [idno, setIdno] = useState("");
+            const [name, setName] = useState("");
+            const [course, setCourse] = useState("");
+            const [displayInfo, setDisplayInfo] = useState(false);
+
+            const handleSubmit = (event) => {
+                event.preventDefault();
+                setDisplayInfo(true);
+            };
+
+            return (
+                <div>
+                    <h2>Student Information</h2>
+                    <form onSubmit={handleSubmit}>
+                        <label htmlFor="idno">ID Number:</label>
+                        <input type="text" id="idno" value={idno} onChange={(e) => setIdno(e.target.value)} required />
+
+                        <label htmlFor="name">Name:</label>
+                        <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required />
+
+                        <label htmlFor="course">Course:</label>
+                        <input type="text" id="course" value={course} onChange={(e) => setCourse(e.target.value)} required />
+
+                        <button type="submit">Show Info</button>
+                    </form>
+
+                    {displayInfo && (
+                        <div className="info-box">
+                            <p><strong>ID Number:</strong> {idno}</p>
+                            <p><strong>Name:</strong> {name}</p>
+                            <p><strong>Course:</strong> {course}</p>
+                        </div>
+                    )}
+                </div>
+            );
+        };
+
+        ReactDOM.render(<Form />, document.getElementById("form-example"));
+    </script>
+</body>
+
+</html>

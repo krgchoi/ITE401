@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <title>Where You At? App</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #d1d1d1, #f2f2f2);
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #505050, #333);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .app-container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #777;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border 0.3s, background 0.3s;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .input-group input:focus {
+            border-color: #555;
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .input-group button {
+            padding: 12px;
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .input-group button:hover {
+            background: linear-gradient(135deg, #555, #333);
+            transform: scale(1.05);
+        }
+
+        #map {
+            width: 100%;
+            height: 400px;
+            margin-top: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            border: 2px solid #ccc;
+            transition: border 0.3s;
+        }
+
+        #map:hover {
+            border-color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Where You At? App</h1>
+    </header>
+    <div class="app-container">
+        <div class="input-group">
+            <input type="text" id="locationInput" placeholder="Enter a location">
+            <button id="addLocationButton">Search Location</button>
+        </div>
+        <div id="map"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
